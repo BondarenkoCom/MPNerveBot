@@ -10,25 +10,25 @@ from bot.services.schemas import DailyDigest
 
 def _format_digest(payload: DailyDigest) -> str:
     stock_lines = "\n".join(
-        f"- {item.product_name}: остаток примерно на {item.days_left} дн."
+        f"- {item.product_name}: approximately {item.days_left} days of stock left"
         for item in payload.stock_risks
     )
     review_line = (
-        f"Отзывы без ответа: {payload.unanswered_reviews_count}\n"
-        f"Самый старый: {payload.oldest_review_age_hours} ч."
+        f"Unanswered reviews: {payload.unanswered_reviews_count}\n"
+        f"Oldest review age: {payload.oldest_review_age_hours} hours"
     )
     anomaly_line = (
-        f"{payload.top_anomaly.product_name}: падение продаж на "
-        f"{payload.top_anomaly.drop_percent}% к среднему за 7 дней"
+        f"{payload.top_anomaly.product_name}: sales down "
+        f"{payload.top_anomaly.drop_percent}% vs 7-day average"
     )
     return (
-        f"Дайджест за {payload.digest_date} ({payload.marketplace_label})\n\n"
-        f"Заказы: {payload.orders_count} ({payload.orders_delta_percent:+d}% к вчера)\n"
-        f"Выручка: {payload.revenue_amount_rub:,} руб.\n"
-        f"Возвраты: {payload.returns_count}\n\n"
-        f"Риски по остаткам:\n{stock_lines}\n\n"
+        f"Daily digest for {payload.digest_date} ({payload.marketplace_label})\n\n"
+        f"Orders: {payload.orders_count} ({payload.orders_delta_percent:+d}% vs yesterday)\n"
+        f"Revenue: {payload.revenue_amount_rub:,}\n"
+        f"Returns: {payload.returns_count}\n\n"
+        f"Stock risks:\n{stock_lines}\n\n"
         f"{review_line}\n\n"
-        f"Главная аномалия:\n{anomaly_line}"
+        f"Top anomaly:\n{anomaly_line}"
     )
 
 
@@ -43,12 +43,12 @@ async def digest_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
     if connected_real:
         await update.message.reply_text(
-            "Реальное подключение подтверждено, но живой дайджест еще собирается.\n"
-            "Пока показываю демо-формат сообщения, чтобы можно было проверить UX."
+            "A real account is connected, but this public showcase still uses a sample digest format.\n"
+            "Showing demo data so the UX can be reviewed."
         )
         marketplace_label = connected_real[0].display_name
     else:
-        marketplace_label = "демо-режим"
+        marketplace_label = "demo mode"
 
     payload = mock_client.get_daily_digest(chat_id=update.effective_chat.id, marketplace="demo")
     payload = DailyDigest(

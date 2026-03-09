@@ -2,25 +2,19 @@
 
 ## Product
 
-- define the exact V1 Telegram commands
-- define the first daily digest format
-- define the first alert types
-- choose first supported marketplace flow
+- refine the generic onboarding flow
+- finalize the first digest format
+- decide which generic provider adapters are public-safe
 
 ## Engineering
 
-- decide bot stack
-- decide credential storage approach
-- define a thin admin/config page
+- keep the bot demoable with mock data
+- improve real integration abstraction without naming vendors publicly
+- add scheduled jobs
+- add AI reply draft flow
 
-## Sales
+## Showcase
 
-- write pilot pitch
-- define free vs paid limits
-- prepare first seller-facing screenshots/mock examples
-
-## Distribution
-
-- map seller channels and chats
-- decide how to use OK.ru as a side funnel
-- prepare first 10 outreach messages
+- keep repository copy client-facing
+- keep all public docs in English
+- keep the portfolio angle stronger than the internal product angle

@@ -11,12 +11,12 @@ services:
       - key: APP_MODE
         value: pilot
       - key: TIMEZONE_NAME
-        value: Europe/Moscow
+        value: UTC
       - key: DATABASE_PATH
         value: /opt/render/project/src/data/mpnervebot.sqlite3
-      - key: OZON_REAL_ENABLED
+      - key: MARKETPLACE_A_REAL_ENABLED
         value: true
-      - key: WB_REAL_ENABLED
+      - key: MARKETPLACE_B_REAL_ENABLED
         value: true
       - key: TELEGRAM_BOT_TOKEN
         sync: false

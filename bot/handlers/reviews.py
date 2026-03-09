@@ -18,16 +18,16 @@ async def reviews_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
     if connected_real:
         await update.message.reply_text(
-            "Реальное подключение подтверждено, но живой список отзывов еще не подключен.\n"
-            "Пока показываю демо-формат, чтобы можно было проверить механику."
+            "A real account is connected, but this public showcase still uses sample review data.\n"
+            "Showing demo content so the interaction flow can be reviewed."
         )
 
     reviews = mock_client.get_unanswered_reviews(chat_id=update.effective_chat.id, marketplace="demo")
 
-    lines = ["Отзывы без ответа:"]
+    lines = ["Unanswered reviews:"]
     for review in reviews[:5]:
         lines.append(
-            f"- {review.product_name} | {review.rating}/5 | {review.age_hours} ч.\n"
+            f"- {review.product_name} | {review.rating}/5 | {review.age_hours}h ago\n"
             f"  {review.text}"
         )
 

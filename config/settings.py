@@ -21,8 +21,8 @@ class Settings:
     digest_hour_moscow: int
     alert_interval_hours: int
     app_mode: str
-    ozon_real_enabled: bool
-    wb_real_enabled: bool
+    marketplace_a_real_enabled: bool
+    marketplace_b_real_enabled: bool
 
 
 def _env_flag(name: str, default: bool) -> bool:
@@ -58,10 +58,10 @@ def load_settings() -> Settings:
         app_base_url=os.getenv("APP_BASE_URL"),
         webhook_secret=os.getenv("WEBHOOK_SECRET"),
         database_path=database_path,
-        timezone_name=os.getenv("TIMEZONE_NAME", "Europe/Moscow"),
+        timezone_name=os.getenv("TIMEZONE_NAME", "UTC"),
         digest_hour_moscow=int(os.getenv("DIGEST_HOUR_MOSCOW", "9")),
         alert_interval_hours=int(os.getenv("ALERT_INTERVAL_HOURS", "2")),
         app_mode=os.getenv("APP_MODE", "demo"),
-        ozon_real_enabled=_env_flag("OZON_REAL_ENABLED", False),
-        wb_real_enabled=_env_flag("WB_REAL_ENABLED", False),
+        marketplace_a_real_enabled=_env_flag("MARKETPLACE_A_REAL_ENABLED", False),
+        marketplace_b_real_enabled=_env_flag("MARKETPLACE_B_REAL_ENABLED", False),
     )

@@ -6,117 +6,78 @@ MPNerveBot
 
 ## Positioning
 
-A Telegram operations bot for Wildberries and Ozon sellers.
+A Telegram operations bot for marketplace merchants.
 
-The product closes an operational pain, not a reporting pain. Sellers already have marketplace dashboards. They still miss important actions because the work is split between multiple apps, tabs, and team members.
+The product is not another reporting dashboard.
+It is a lightweight control layer for teams that already have platform data but still miss operational signals, follow-ups, and action loops.
 
 ## Main Problem
 
-Small and mid sellers do not need another heavy dashboard.
+Small and mid-sized merchants do not need another analytics maze.
 
 They need:
-- one daily picture of what matters today
-- one place to catch urgent issues
-- one fast way to react to reviews, questions, and stock problems
-- one operational surface they can share with a manager
+
+- one clear morning snapshot
+- one place for urgent operational alerts
+- one simple way to track reviews and follow-ups
+- one shared surface inside Telegram
 
 ## Target Users
 
 Primary:
-- Wildberries and Ozon sellers with 20-300 SKU
-- owner-operated stores
-- small teams with 1-5 managers
+
+- marketplace merchants with small to mid-sized catalogs
+- owner-led stores
+- small commerce teams
 
 Secondary:
-- agencies or assistants managing multiple seller accounts
+
+- agencies or operators managing multiple storefronts
+- service firms building merchant automation tools
 
 ## Core Jobs To Be Done
 
-1. Tell me what needs attention today without making me open two marketplace apps.
-2. Warn me before stockouts or obvious sales drops hurt the business.
-3. Show me unanswered feedback that should not sit untouched.
-4. Let me act from Telegram, not from five separate dashboards.
+1. Tell me what needs attention today without making me open several admin panels.
+2. Warn me before stock problems or sales anomalies become expensive.
+3. Show me reviews that still need action.
+4. Keep the workflow inside Telegram.
 
 ## MVP
 
-### Seller Onboarding
+### Onboarding
 
-- choose marketplace: Wildberries / Ozon / both
-- connect seller credentials
-- choose Telegram destination: personal chat or team chat
+- choose a marketplace connection
+- connect credentials or use demo mode
+- start receiving signals quickly
 
 ### Daily Digest
 
-- sales delta
+- order and revenue snapshot
 - stock risk summary
-- unanswered feedback summary
-- top anomalies that need action
+- review backlog summary
+- top anomalies
 
 ### Alerts
 
-- low stock / probable stockout
-- strong sales drop
-- unanswered feedback over threshold
+- low stock
+- sales drop
+- unanswered reviews
 
 ### AI Layer
 
-- draft reply suggestions for feedback
-- concise explanation of why an alert was raised
+- draft replies to reviews
+- concise explanations for alerts
 
-### Team Use
+## What We Avoid In V1
 
-- owner can add a manager or use a shared Telegram group
-
-## What We Explicitly Avoid In V1
-
-- full dashboard clone
-- deep finance/accounting
-- complex BI
-- full CRM
-- mobile app
-- public app store launch
-
-## Monetization
-
-Free:
-- 1 marketplace
-- limited SKU count
-- one daily digest
-
-Paid Basic:
-- 1 marketplace
-- alerts
-- higher limits
-
-Paid Pro:
-- Wildberries + Ozon
-- team chat
-- AI drafts
-- priority alerts
-
-## Why This Can Work Fast
-
-- Telegram is the natural interface for this audience
-- the product can start as a bot plus a thin admin layer
-- first sales can be manual
-- distribution can start from seller communities, not app stores
-
-## Why The Existing Job Bot Is Not The Model
-
-The ENG job bot is a portfolio example.
-
-This product is different:
-- Russian-speaking market
-- B2B pain
-- daily operational use
-- recurring value
+- dashboard clones
+- finance suites
+- BI platforms
+- CRM sprawl
+- mobile app packaging
 
 ## Build Principle
 
 Ship the smallest useful control loop:
 
-input -> signal -> action
-
-Not:
-
-input -> giant dashboard -> user fatigue
+`input -> signal -> action`

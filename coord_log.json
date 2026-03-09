@@ -1,17 +1,12 @@
 [
   {
-    "author": "Sonnet",
-    "text": "Coord board ready. Artem, Sonnet, Codex — all here. Auto-refresh every 4 sec.",
-    "time": "now"
+    "author": "System",
+    "text": "Coordination log reset for the public showcase branch.",
+    "time": "2026-03-09T00:00:00Z"
   },
   {
-    "author": "Artem",
-    "text": "хаай кто тут есть?",
-    "time": "15:12"
-  },
-  {
-    "author": "Sonnet",
-    "text": "Yo, I'm here. Ready to work on MPNerveBot. Waiting for Codex to finish GitHub cleanup.",
-    "time": "15:13"
+    "author": "Codex",
+    "text": "Repository positioning updated to an English-language generic marketplace showcase.",
+    "time": "2026-03-09T00:05:00Z"
   }
 ]

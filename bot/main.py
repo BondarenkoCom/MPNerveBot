@@ -7,9 +7,9 @@ from telegram.ext import Application
 
 from bot.handlers import register_handlers
 from bot.models.db import Database
+from bot.services.marketplace_a_api import MarketplaceAApiClient
+from bot.services.marketplace_b_api import MarketplaceBApiClient
 from bot.services.mock_api import MockMarketplaceClient
-from bot.services.ozon_api import OzonApiClient
-from bot.services.wb_api import WildberriesApiClient
 from config.settings import Settings, load_settings
 
 
@@ -29,8 +29,8 @@ def build_application(settings: Settings) -> Application:
     application.bot_data["settings"] = settings
     application.bot_data["database"] = database
     application.bot_data["mock_client"] = MockMarketplaceClient()
-    application.bot_data["ozon_api_client"] = OzonApiClient()
-    application.bot_data["wb_api_client"] = WildberriesApiClient()
+    application.bot_data["marketplace_a_api_client"] = MarketplaceAApiClient()
+    application.bot_data["marketplace_b_api_client"] = MarketplaceBApiClient()
 
     register_handlers(application)
     return application

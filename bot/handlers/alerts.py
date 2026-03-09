@@ -13,12 +13,12 @@ async def alerts_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     database: Database = context.application.bot_data["database"]
     settings = database.get_or_create_alert_settings(chat_id=update.effective_chat.id)
     message = (
-        "Текущие пороги алертов:\n"
-        f"- Остаток меньше: {settings.stock_days_threshold} дн.\n"
-        f"- Падение продаж больше: {settings.sales_drop_percent_threshold}%\n"
-        f"- Отзыв без ответа старше: {settings.review_age_hours_threshold} ч.\n"
-        f"- Ежедневный дайджест: {'включен' if settings.digest_enabled else 'выключен'}\n"
-        f"- Алерты: {'включены' if settings.alerts_enabled else 'выключены'}"
+        "Current alert thresholds:\n"
+        f"- Stock coverage below: {settings.stock_days_threshold} days\n"
+        f"- Sales drop above: {settings.sales_drop_percent_threshold}%\n"
+        f"- Review age above: {settings.review_age_hours_threshold} hours\n"
+        f"- Daily digest: {'enabled' if settings.digest_enabled else 'disabled'}\n"
+        f"- Alerts: {'enabled' if settings.alerts_enabled else 'disabled'}"
     )
     await update.message.reply_text(message)
 

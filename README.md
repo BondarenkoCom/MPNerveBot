@@ -1,36 +1,93 @@
 # MPNerveBot
 
-Telegram-first operations bot for Wildberries and Ozon sellers.
+Public-safe showcase of a Telegram-first marketplace operations bot.
 
-The product is not another analytics dashboard. It is a daily control layer in Telegram for sellers who already have data, but do not have a clean operational workflow.
+This repository is positioned as a client-facing portfolio sample, not as a live product for one specific regional marketplace.
+It demonstrates how a lightweight bot can act as an operations layer for merchants who sell across third-party marketplaces and want daily signals instead of another heavy dashboard.
 
-Core idea:
-- connect Wildberries and Ozon seller tokens
-- send a daily digest into Telegram
-- alert on stock risks, unanswered feedback, and sales anomalies
-- generate AI draft replies for marketplace feedback
-- support owner + manager workflows inside one chat
+## What This Showcase Demonstrates
 
-Why this direction:
-- it fits current engineering speed
-- it fits Russian-speaking СНГ users better than the existing ENG job bot
-- it can be sold as a lightweight B2B tool before building a full web product
-- it does not require app stores on day 1
+- Telegram onboarding flow for connecting marketplace accounts
+- daily digest message generation
+- operational alerts for stock risk, review backlog, and sales anomalies
+- account persistence in SQLite
+- mock-first development workflow
+- deployment-ready Python bot structure for hosted environments
 
-Primary audience:
-- Russian-speaking sellers on Wildberries and Ozon
-- first pilots: small and mid sellers with 20-300 SKU
-- first paying clients are easier to close in СНГ where foreign-bank/manual-payment friction is lower
+## Product Shape
 
-Initial product shape:
-- Telegram bot
-- lightweight web admin page
-- daily digest
-- stock alerts
-- feedback alerts
-- AI reply drafts
+The bot is designed around one idea:
 
-See:
-- `IDEA.md` for product scope
-- `MARKETING.md` for go-to-market
-- `AGENTS.md` for collaboration rules
+`data -> signal -> action`
+
+Instead of building a large analytics interface, the bot focuses on:
+
+- daily summaries
+- urgent alerts
+- review follow-up workflows
+- fast operator visibility inside Telegram
+
+## Public-Safe Positioning
+
+This repository intentionally avoids naming real marketplace vendors in its public-facing materials.
+The implementation is framed around generic marketplace integrations such as:
+
+- `Marketplace A`
+- `Marketplace B`
+- `Demo Mode`
+
+That keeps the repo reusable as a showcase for agencies, merchants, and clients who need similar automation patterns in different ecosystems.
+
+## Current Status
+
+Working today:
+
+- Telegram bot bootstrap
+- demo onboarding
+- generic marketplace account persistence
+- mock digest and reviews
+- generic integration placeholders for two marketplace providers
+
+Planned next:
+
+- richer real-data adapters
+- scheduled digests and alert jobs
+- AI-generated reply drafts
+- more polished operator flows
+
+## Stack
+
+- Python 3.11+
+- `python-telegram-bot`
+- `httpx`
+- `SQLite`
+- optional LLM layer via API providers
+
+## Repository Layout
+
+- `bot/` Telegram app, handlers, models, services
+- `config/` runtime settings
+- `tests/` tests and future coverage
+- `ref/` reusable reference snippets
+- public docs in the repository root
+
+## Running Locally
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+Copy-Item .env.example .env
+python -m bot.main
+```
+
+## Deployment
+
+A Render blueprint file is included in [render.yaml](/D:/Projects/Repos/MPNerveBot/render.yaml).
+For public demos or real deployment, use a fresh bot token and production-safe secrets.
+
+## Notes
+
+- This repo is now maintained as an English-language showcase.
+- User-facing examples, copy, and positioning are intentionally generic.
+- If you want the same architecture adapted to a real commerce platform, that belongs in a private client implementation layer.
