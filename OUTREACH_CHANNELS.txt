@@ -1,6 +1,0 @@
-Target channels for future client outreach:
-
-- e-commerce operator communities
-- Telegram automation communities
-- small merchant founder groups
-- agency or operator Slack and Discord communities

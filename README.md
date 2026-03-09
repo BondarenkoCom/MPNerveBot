@@ -69,7 +69,8 @@ Planned next:
 - `config/` runtime settings
 - `tests/` tests and future coverage
 - `ref/` reusable reference snippets
-- public docs in the repository root
+
+The repository surface is intentionally kept minimal so the public GitHub view stays clean and client-facing.
 
 ## Running Locally
 
