@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: nerv-mp-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m bot.main
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_MODE
+        value: pilot
+      - key: TIMEZONE_NAME
+        value: Europe/Moscow
+      - key: DATABASE_PATH
+        value: /opt/render/project/src/data/mpnervebot.sqlite3
+      - key: OZON_REAL_ENABLED
+        value: true
+      - key: WB_REAL_ENABLED
+        value: true
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: APP_BASE_URL
+        sync: false
+      - key: WEBHOOK_SECRET
+        sync: false
+    disk:
+      name: nerv-mp-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
